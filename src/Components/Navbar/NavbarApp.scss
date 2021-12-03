@@ -1,0 +1,19 @@
+@import "../../Assets/Styles/_colors.scss";
+#navbar #dropdown-header .row:nth-child(1){
+    font-size: 70px;
+    display: flex;
+    justify-content: center;
+}
+#navbar #dropdown-header .row:nth-child(2){
+    font-size: 16px;
+    display: flex;
+    justify-content: center;
+    margin-top: 5px;
+}
+.logo{
+    width: 100px;
+    padding-right: 10px;
+}
+.navbar-dark {
+    background-color: $color-gray;
+}

@@ -1,0 +1,18 @@
+.media {
+  height: 0;
+  padding-top: "56.25%"; // 16:9
+}
+.expand {
+  transform: rotate(0deg);
+  margin-left: "auto";
+  transition: 1s;
+}
+.expandOpen {
+  transform: rotate(180deg);
+}
+.item-evento__card-avatar {
+  background-color: red;
+}
+.item-evento__card {
+  max-width: 345px;
+}

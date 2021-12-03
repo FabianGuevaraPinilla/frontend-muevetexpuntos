@@ -1,0 +1,36 @@
+@import "../Assets/Styles/colors";
+.Admin__nav_dashboard {
+    background-color: $color-nav-admin;
+    // position: absolute;
+    padding-inline-end: 0;
+    height: auto;
+    min-height: 80vh;
+ 
+    
+}
+
+.Nav_icon-main{
+    svg {
+        color: rgb(226, 220, 220);
+    }
+}
+.Nav_linkItem{
+    display: flex;
+    align-items: center;
+    span {
+        color:rgb(226, 220, 220)
+    }
+    svg {
+        color: rgb(226, 220, 220);
+    }
+}
+
+
+//cambiando color de seleccionado
+.Mui-selected{
+    background-color: rgba(0, 0,0,44%);
+}
+
+.Admin__content_dashboard{
+
+}
