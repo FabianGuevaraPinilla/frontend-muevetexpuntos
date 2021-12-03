@@ -6,7 +6,7 @@ import { Container, Form, Row, Button } from 'react-bootstrap';
 import { request } from '../../../../../Helper/helper';
 import Loading from '../../../../../Components/Loading/Loading';
 import MessagePrompt from '../../../../../Components/Prompts/MessagePrompt';
-
+import Grid from '@mui/material/Grid';
 
 const urlAPIEventos = "/eventos";
 
@@ -34,10 +34,10 @@ export default class FormEventoNuevo extends React.Component {
         cupo: 0,
         valor_puntos: 0,
         disponible: true,
-    },
-    listaCategoriaEventos: [],
-    listaSucursales: [],
-    listaTipoEventos: []
+      },
+      listaCategoriaEventos: [],
+      listaSucursales: [],
+      listaTipoEventos: []
     };
     this.onExitedMessage = this.onExitedMessage.bind(this);
   }
@@ -46,10 +46,10 @@ export default class FormEventoNuevo extends React.Component {
     this.consultarCategoria();
     this.consultarSucursales();
     this.consultarTipos();
-}
-componentDidUpdate() {
+  }
+  componentDidUpdate() {
     console.log(this.state.dataEvento)
-}
+  }
   consultarCategoria() {
     //hace la consulta de las categorias
     request.
@@ -122,12 +122,12 @@ componentDidUpdate() {
       })
       .catch((err) => {
         console.error(err);
-        this.setState({ 
-            loading: false,
-            message: {
-                text: "ERROR realizando la petición",
-                show: true,
-            },
+        this.setState({
+          loading: false,
+          message: {
+            text: "ERROR realizando la petición",
+            show: true,
+          },
         });
       });
   }
@@ -170,7 +170,7 @@ componentDidUpdate() {
               <Form.Select
                 type
                 onChange={(e) => this.setValue('id_tipo', parseInt(e.target.value))}>
-                  <option>Seleccione tipo</option>
+                <option>Seleccione tipo</option>
                 {
                   this.state.listaTipoEventos.map((tipo) => (
                     <option value={tipo._id} key={tipo._id}>
@@ -196,7 +196,7 @@ componentDidUpdate() {
                 <Form.Group className="mb-3" controlId="formBasic">
                   <Form.Label>Url evento</Form.Label>
                   <Form.Control
-  
+
                     onChange={(e) => this.setValue('url', e.target.value)}
                     required={this.state.dataEvento.id_tipo === 2 ? false : true}
                   />
@@ -207,7 +207,7 @@ componentDidUpdate() {
               <Form.Label>Categoria evento</Form.Label>
               <Form.Select
                 onChange={(e) => this.setValue('id_categoria', parseInt(e.target.value))}>
-                  <option>Seleccione categoria</option>
+                <option>Seleccione categoria</option>
                 {
                   this.state.listaCategoriaEventos.map((cat) => (
                     <option value={cat._id} key={cat._id}>
@@ -223,7 +223,7 @@ componentDidUpdate() {
               <Form.Select
                 type
                 onChange={(e) => this.setValue('id_sucursal', parseInt(e.target.value))}>
-                  <option>Seleccione sucursal</option>
+                <option>Seleccione sucursal</option>
                 {
                   this.state.listaSucursales.map((sucursal) => (
                     <option value={sucursal._id} key={sucursal._id}>
@@ -233,38 +233,50 @@ componentDidUpdate() {
                 }
               </Form.Select>
             </Form.Group>
-
+            <Grid container spacingrowSpacing={1} columnSpacing={{ xs: 1, sm: 3, md: 3 }}>
+            <Grid item xs={6}>
             <Form.Group className="mb-3" controlId="formBasic">
               <Form.Label>Puntos necesarios</Form.Label>
               <Form.Control
                 onChange={(e) => this.setValue('valor_puntos', parseInt(e.target.value))}
               />
             </Form.Group>
-
+            </Grid>
+            <Grid item xs={6}>
             <Form.Group className="mb-3" controlId="formBasic">
               <Form.Label>Cupos ofertados</Form.Label>
               <Form.Control
                 onChange={(e) => this.setValue('cupo', parseInt(e.target.value))}
               />
             </Form.Group>
-            <Form.Group className="mb-3" controlId="formBasic">
-              <Form.Label>Fecha Inicio</Form.Label>
-              <Form.Control
-                min="2021-12-01T00:00"
-                max="2023-01-01T00:00"
-                type="datetime-local"
-                onChange={(e) => this.setValue('fecha_inicio', e.target.value)}
-              />
-            </Form.Group>
-            <Form.Group className="mb-3" controlId="formBasic">
-              <Form.Label>Fecha Fin</Form.Label>
-              <Form.Control
-                min="2021-12-01T00:00"
-                max="2023-01-01T00:00"
-                type="datetime-local"
-                onChange={(e) => this.setValue('fecha_fin', e.target.value)}
-              />
-            </Form.Group>
+            </Grid>
+            
+
+              <Grid item xs={6}>
+                <Form.Group className="mb-3" controlId="formBasic">
+                  <Form.Label>Fecha Inicio</Form.Label>
+                  <Form.Control
+                    min="2021-12-01T00:00"
+                    max="2023-01-01T00:00"
+                    type="datetime-local"
+                    onChange={(e) => this.setValue('fecha_inicio', e.target.value)}
+                  />
+                </Form.Group>
+              </Grid>
+
+              <Grid item xs={6}>
+                <Form.Group className="mb-3" controlId="formBasic">
+                  <Form.Label>Fecha Fin</Form.Label>
+                  <Form.Control
+                    min="2021-12-01T00:00"
+                    max="2023-01-01T00:00"
+                    type="datetime-local"
+                    onChange={(e) => this.setValue('fecha_fin', e.target.value)}
+                  />
+                </Form.Group>
+              </Grid>
+            </Grid>
+
             <Form.Group className="mb-3" controlId="formBasic">
               <Form.Label>Nombre foto</Form.Label>
               <Form.Control
@@ -275,7 +287,7 @@ componentDidUpdate() {
               <Form.Label>El evento esta disponible?</Form.Label>
               <Form.Select
                 onChange={(e) => this.setValue('disponible', e.target.value === "true" ? true : false)}>
-                  <option>Seleccione disponibilidad</option>
+                <option>Seleccione disponibilidad</option>
                 <option value="true">Disponible</option>
                 <option value="false">Oculto</option>
               </Form.Select>

@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
 import PrivateRoute from "./PrivateRoute";
 
@@ -18,7 +18,7 @@ import DashboardMain from "../Pages/Admin/Views/DashboardMain/DashboardMain";
 import DashboardFuncionarios from "../Pages/Admin/Views/DashboardFuncionarios/DashboardFuncionarios";
 import { UserContext } from "../Contexts/UserContext";
 import { getAuth, getRol } from "../Helper/helper";
-import { ThemeConsumer } from "react-bootstrap/esm/ThemeProvider";
+
 
 import DashboardRoute from "./DashboardRoute";
 
@@ -77,7 +77,7 @@ export default class AppRouter extends React.Component {
     console.log("actualizando router")
     console.log(this.state)
     console.log(window.location.pathname)
-    const { auth, rol } = this.context;
+    const { rol } = this.context;
     if (rol !== this.state.rol) {
       this.setState({
         rol: rol
@@ -129,10 +129,10 @@ export default class AppRouter extends React.Component {
               <PrivateRoute exact path="/eventos" component={EventosPage} />
               <PrivateRoute path="/eventos/inscripcion/:idEvento" component={EventosInscripcion} />
               <PrivateRoute path="/premios" component={PremiosPage} />
-              <DashboardRoute path="/admin/funcionarios"><DashboardFuncionarios/></DashboardRoute>
-              <DashboardRoute exact path={["/admin", "/admin/main"]}><DashboardMain/></DashboardRoute>
-              <DashboardRoute path="/admin/eventos"><DashboardEventos/></DashboardRoute>
-              <DashboardRoute path="/admin/premios"><DashboardPremios/></DashboardRoute>
+              <DashboardRoute path="/admin/funcionarios"><DashboardFuncionarios /></DashboardRoute>
+              <DashboardRoute exact path={["/admin", "/admin/main"]}><DashboardMain /></DashboardRoute>
+              <DashboardRoute path="/admin/eventos"><DashboardEventos /></DashboardRoute>
+              <DashboardRoute path="/admin/premios"><DashboardPremios /></DashboardRoute>
               <Route path={"*"} component={NotFoundPage} />
               <Redirect from="/" to="/admin" />
             </Switch>

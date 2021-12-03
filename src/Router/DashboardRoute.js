@@ -2,7 +2,7 @@
 import PrivateRoute from './PrivateRoute'
 
 import React, { useState } from 'react'
-import { Button, Col, Row } from 'react-bootstrap'
+import {Col, Row } from 'react-bootstrap'
 
 import { useHistory } from "react-router-dom";
 
@@ -10,11 +10,10 @@ import { useHistory } from "react-router-dom";
 import Toolbar from '@mui/material/Toolbar';
 import List from '@mui/material/List';
 import Divider from '@mui/material/Divider';
-import ListItem from '@mui/material/ListItem';
+
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import MailIcon from '@mui/icons-material/Mail';
+
 import { ListItemButton } from '@mui/material';
 import HomeIcon from '@mui/icons-material/Home';
 import EventIcon from '@mui/icons-material/Event';
@@ -25,11 +24,10 @@ import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
-import ChevronRightIcon from '@mui/icons-material/ChevronRight';
+
 
 import "./DashboardRoute.scss"
 
-const drawerWidth = 240;
 
 const listItemsMenu = [
     {

@@ -25,7 +25,6 @@ export default class PremiosPage extends React.Component {
               <li className="py-1">
                 <a
                   className={"active"}
-                  href="#"
                   onClick={() => {
                     this.selectCategoriaFiltro("Todos");
                   }}
@@ -36,7 +35,6 @@ export default class PremiosPage extends React.Component {
               <li className="py-1">
                 <a
                   className={"active"}
-                  href="#"
                   onClick={() => {
                     this.selectCategoriaFiltro("Hogar");
                   }}
@@ -47,7 +45,6 @@ export default class PremiosPage extends React.Component {
               <li className="py-1">
                 <a
                   className={"active"}
-                  href="#"
                   onClick={() => {
                     this.selectCategoriaFiltro("Deportes");
                   }}
@@ -58,7 +55,6 @@ export default class PremiosPage extends React.Component {
               <li className="py-1">
                 <a
                   className={"active"}
-                  href="#"
                   onClick={() => {
                     this.selectCategoriaFiltro("Mascotas");
                   }}
@@ -69,7 +65,6 @@ export default class PremiosPage extends React.Component {
               <li className="py-1">
                 <a
                   className={"active"}
-                  href="#"
                   onClick={() => {
                     this.selectCategoriaFiltro("Herramientas");
                   }}
@@ -80,7 +75,6 @@ export default class PremiosPage extends React.Component {
               <li className="py-1">
                 <a
                   className={"active"}
-                  href="#"
                   onClick={() => {
                     this.selectCategoriaFiltro("Moda");
                   }}

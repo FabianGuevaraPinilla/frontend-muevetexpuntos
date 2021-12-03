@@ -75,19 +75,7 @@ class ItemEvento extends React.Component {
   }
 
   componentDidMount() {
-    console.log(
-      config.HOST_API + "/images/eventos/" + this.props.dataEvento.path_foto
-    );
-    fetch(this.props.dataEvento.path_foto)
-      .then((response) => response.blob())
-      .then((image) => {
-        // Create a local URL of that image
-        const localUrl = URL.createObjectURL(image);
-        console.log(localUrl);
-        this.setState({
-          imageData: localUrl,
-        });
-      });
+    console.log(this.props.history)
   }
 
   //expandir componente
@@ -121,30 +109,23 @@ class ItemEvento extends React.Component {
           title={this.props.dataEvento.titulo}
           subheader={this.getFecha() + " " + this.getHora()}
         />
-        <CardMedia
-          className="media"
-          src={
-            config.HOST_API +
-            "/images/eventos/" +
-            this.props.dataEvento.path_foto
-          }
-          title={this.props.dataEvento.categoria}
-        />
+
         <Image
           src={
             config.HOST_API +
-            "/images/eventos/" +
+            "/images" +
             this.props.dataEvento.path_foto
           }
           fluid
         />
-        <CardContent>
+        <CardContent className = "d-flex justify-content-center">
           <Button
+            
             variant="danger"
             style={{ marginBottom: 2, marginTop: 8 }}
             type="submit"
           >
-            <Link to={"/eventos/inscripcion/" + this.props.dataEvento._id}>
+            <Link to={"/eventos/inscripcion/" + this.props.dataEvento._id} className = "Link_evento_desripcion">
               INSCRIBIRSE AL AVENTO{" "}
             </Link>
           </Button>
